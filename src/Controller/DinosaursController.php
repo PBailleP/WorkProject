@@ -78,4 +78,15 @@ final class DinosaursController extends AbstractController
 
         return $this->redirectToRoute('app_dinosaurs_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/cool-dinosaurs/{cool}', name: 'dinosaurs_by_cool', requirements: ['cool' => '0|1'])]
+    public function byCoolStatus(bool $cool, DinosaursRepository $dinoRepo): Response
+    {
+        $dinosaurs = $dinoRepo->findByCoolStatus($cool);
+
+        return $this->render('dinosaurs/index.html.twig', [
+            'dinosaurs' => $dinosaurs,
+        ]);
+    }
+
 }

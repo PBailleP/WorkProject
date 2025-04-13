@@ -3,41 +3,46 @@
 {% block title %}Dinosaurs index{% endblock %}
 
 {% block body %}
-    <h1>Dinosaurs index</h1>
-
-    <table class="table">
+    <h1>Liste des dinosaures</h1>
+    <div style="margin-bottom: 1rem;">
+        <a href="{{ path('dinosaurs_by_cool', { cool: 1 }) }}" class="button">Voir les cool dinos</a>
+        <a href="{{ path('dinosaurs_by_cool', { cool: 0 }) }}" class="button secondary">Voir les pas cool dinos</a>
+        <a href="{{ path('home') }}" class="button reset">Tout les dinos</a>
+    </div>
+    <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>IsLookingCool</th>
-                <th>LastSeen</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Espèce</th>
+            <th>Taille (m)</th>
+            <th>Poids (kg)</th>
+            <th>Cool ?</th>
+            <th>Dernière vue</th>
+            <th>Période</th>
+            <th>Scientifiques associés</th>
+        </tr>
         </thead>
         <tbody>
-        {% for dinosaur in dinosaurs %}
+        {% for dino in dinosaurs %}
             <tr>
-                <td>{{ dinosaur.id }}</td>
-                <td>{{ dinosaur.Name }}</td>
-                <td>{{ dinosaur.Height }} m</td>
-                <td>{{ dinosaur.Weight }} kg</td>
-                <td>{{ dinosaur.isLookingCool ? 'Yes' : 'No' }}</td>
-                <td>{{ dinosaur.lastSeen ? dinosaur.lastSeen|date('Y-m-d') : '' }}</td>
+                <td>{{ dino.name }}</td>
+                <td>{{ dino.species ? dino.species.name : 'Inconnue' }}</td>
+                <td>{{ dino.height }}</td>
+                <td>{{ dino.weight }}</td>
+                <td>{{ dino.isLookingCool ? 'Yeah️' : 'Nope' }}</td>
+                <td>{{ dino.lastSeen ? dino.lastSeen|date('Y-m-d') : 'Jamais' }}</td>
+                <td>{{ dino.period ? dino.period.name : 'Inconnue' }}</td>
                 <td>
-                    <a href="{{ path('app_dinosaurs_show', {'id': dinosaur.id}) }}">show</a>
-                    <a href="{{ path('app_dinosaurs_edit', {'id': dinosaur.id}) }}">edit</a>
+                    <ul>
+                        {% for scientist in dino.scientists %}
+                            <li>{{ scientist.name }}</li>
+                        {% else %}
+                            <li>Aucun</li>
+                        {% endfor %}
+                    </ul>
                 </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_dinosaurs_new') }}">Create new</a>
 {% endblock %}
