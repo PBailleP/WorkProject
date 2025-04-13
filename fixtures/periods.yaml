@@ -1,0 +1,7 @@
+App\Entity\Period:
+  period_1:
+    name: Triassic
+  period_2:
+    name: Jurassic
+  period_3:
+    name: Cretaceous

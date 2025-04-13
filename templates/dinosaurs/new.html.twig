@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Dinosaurs{% endblock %}
+
+{% block body %}
+    <h1>Create new Dinosaurs</h1>
+
+    {{ include('dinosaurs/_form.html.twig') }}
+
+    <a href="{{ path('app_dinosaurs_index') }}">back to list</a>
+{% endblock %}

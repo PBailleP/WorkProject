@@ -1,0 +1,4 @@
+App\Entity\Species:
+  species_{1..3}:
+    name: <word()>saurus
+    description: <paragraph()>
