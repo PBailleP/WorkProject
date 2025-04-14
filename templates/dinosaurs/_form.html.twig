@@ -1,4 +1,55 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="form-container">
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.height) }}
+        {{ form_widget(form.height) }}
+        {{ form_errors(form.height) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.weight) }}
+        {{ form_widget(form.weight) }}
+        {{ form_errors(form.weight) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.isLookingCool) }}
+        {{ form_widget(form.isLookingCool) }}
+        {{ form_errors(form.isLookingCool) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.lastSeen) }}
+        {{ form_widget(form.lastSeen) }}
+        {{ form_errors(form.lastSeen) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.period) }}
+        {{ form_widget(form.period) }}
+        {{ form_errors(form.period) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.species) }}
+        {{ form_widget(form.species) }}
+        {{ form_errors(form.species) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.scientists) }}
+        {{ form_widget(form.scientists) }}
+        {{ form_errors(form.scientists) }}
+    </div>
+
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+    {{ form_end(form) }}
+</div>

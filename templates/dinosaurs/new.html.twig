@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Dinosaurs{% endblock %}
+{% block title %}Create New Dinosaur{% endblock %}
 
 {% block body %}
-    <h1>Create new Dinosaurs</h1>
+    <div class="container">
+        <h1>Create New Dinosaur</h1>
 
-    {{ include('dinosaurs/_form.html.twig') }}
+        {# Insertion du formulaire #}
+        {{ include('dinosaurs/_form.html.twig') }}
 
-    <a href="{{ path('app_dinosaurs_index') }}">back to list</a>
+        {# Lien pour revenir à la liste des dinosaures #}
+        <a href="{{ path('home') }}" class="btn back-to-list">Back to List</a>
+    </div>
 {% endblock %}
+

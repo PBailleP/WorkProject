@@ -17,13 +17,13 @@ class Dinosaurs
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $Height = null;
+    private ?int $height = null;
 
     #[ORM\Column]
-    private ?int $Weight = null;
+    private ?int $weight = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $isLookingCool = null;
@@ -55,36 +55,36 @@ class Dinosaurs
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $name): static
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getHeight(): ?int
     {
-        return $this->Height;
+        return $this->height;
     }
 
-    public function setHeight(int $Height): static
+    public function setHeight(int $height): static
     {
-        $this->Height = $Height;
+        $this->height = $height;
 
         return $this;
     }
 
     public function getWeight(): ?int
     {
-        return $this->Weight;
+        return $this->weight;
     }
 
-    public function setWeight(int $Weight): static
+    public function setWeight(int $weight): static
     {
-        $this->Weight = $Weight;
+        $this->weight = $weight;
 
         return $this;
     }

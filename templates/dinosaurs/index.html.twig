@@ -8,6 +8,8 @@
         <a href="{{ path('dinosaurs_by_cool', { cool: 1 }) }}" class="button">Voir les cool dinos</a>
         <a href="{{ path('dinosaurs_by_cool', { cool: 0 }) }}" class="button secondary">Voir les pas cool dinos</a>
         <a href="{{ path('home') }}" class="button reset">Tout les dinos</a>
+        <a href="{{ path('app_dinosaurs_new') }}" class="button add">➕ Ajouter un dinosaure</a>
+
     </div>
     <table>
         <thead>
@@ -24,7 +26,7 @@
         </thead>
         <tbody>
         {% for dino in dinosaurs %}
-            <tr>
+            <tr onclick="window.location='{{ path('app_dinosaurs_edit', {id: dino.id}) }}'" class="clickable-row">
                 <td>{{ dino.name }}</td>
                 <td>{{ dino.species ? dino.species.name : 'Inconnue' }}</td>
                 <td>{{ dino.height }}</td>

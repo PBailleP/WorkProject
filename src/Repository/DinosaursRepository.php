@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Dinosaurs;
+use App\Entity\Period;
+use App\Entity\Scientist;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,6 +23,17 @@ class DinosaursRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('d')
             ->where('d.isLookingCool = :cool')
             ->setParameter('cool', $cool)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findDinosByScientistAndPeriod(Scientist $scientist, Period $period): array
+    {
+        return $this->createQueryBuilder('d')
+            ->where(':scientist MEMBER OF d.scientists')
+            ->andWhere('d.period = :period')
+            ->setParameter('scientist', $scientist)
+            ->setParameter('period', $period)
             ->getQuery()
             ->getResult();
     }

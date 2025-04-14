@@ -33,7 +33,7 @@ final class DinosaursController extends AbstractController
             $entityManager->persist($dinosaur);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_dinosaurs_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('dinosaurs/new.html.twig', [
@@ -59,7 +59,7 @@ final class DinosaursController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_dinosaurs_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('dinosaurs/edit.html.twig', [
@@ -76,7 +76,7 @@ final class DinosaursController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_dinosaurs_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 
     #[Route('/cool-dinosaurs/{cool}', name: 'dinosaurs_by_cool', requirements: ['cool' => '0|1'])]

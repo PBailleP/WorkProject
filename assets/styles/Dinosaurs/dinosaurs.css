@@ -11,6 +11,33 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #e0e0e0;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
 a.button {
     display: inline-block;
     margin-right: 1rem;
@@ -43,29 +70,19 @@ a.button.reset:hover {
     background-color: #d32f2f;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+a.button.add {
+    background-color: #2196f3; /* bleu sympa */
 }
 
-thead {
-    background-color: #e0e0e0;
+a.button.add:hover {
+    background-color: #1976d2;
 }
 
-th, td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-ul {
-    padding-left: 1.2rem;
+.clickable-row:hover {
+    background-color: #e8f0fe;
 }

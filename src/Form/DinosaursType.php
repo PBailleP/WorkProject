@@ -16,24 +16,24 @@ class DinosaursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Name')
-            ->add('Height')
-            ->add('Weight')
+            ->add('name')
+            ->add('height')
+            ->add('weight')
             ->add('isLookingCool')
             ->add('lastSeen', null, [
                 'widget' => 'single_text',
             ])
             ->add('period', EntityType::class, [
                 'class' => Period::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('species', EntityType::class, [
                 'class' => Species::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('scientists', EntityType::class, [
                 'class' => Scientist::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'multiple' => true,
             ])
         ;
